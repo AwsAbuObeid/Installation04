@@ -200,6 +200,7 @@ if False:
     y_train=np.delete(y_train,r0,0)
 
 # training
+# this part can be replaced by any other model
 clf = MLPClassifier(solver='adam', alpha=alpha, hidden_layer_sizes=(int(x.shape[1]*2/3), hid), random_state=1, max_iter=10000, shuffle=False)
 clf.fit(x_train, y_train)
 
