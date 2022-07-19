@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<style>
+.picture {
+  width: 200px;
+  height: 66px;
+  background: url('/static/logo.png') no-repeat;
+  background-size: contain;
+}
+
+.picture:hover {
+  background: url('/static/logo_broken.png') no-repeat;
+  background-size: contain;
+}
+</style>
+<html lang="en" >
+
+    <head>
+        <link rel = "icon" href =
+                "/static/logo_title.png"
+              type = "image/x-icon">
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Installation 04</title>
+        <link href="/static/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" type="text/css" href="https://widgets.bitcoin.com/widget.css?46" media="all">
+        {{ turbo() }}
+    </head>
+
+    <body >
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="height:80px;">
+
+        <a class="btn btn-lg btn-outline-secondary m-2" href="/Bitcoin"  >
+            <div ><i class="bi bi-currency-bitcoin"></i>Bitcoin</div>
+        </a>
+        <a class="btn btn-lg btn-outline-secondary m-2" href="/Litecoin"  >
+            <div ><img src="/static/ltc.png" style="width:14px; margin-bottom:3px; opacity: 0.5;"></img> Litecoin</div>
+        </a>
+        <a class="btn btn-lg btn-outline-secondary m-2" href="Ripple"  >
+            <div ><img src="/static/xrp.png" style="width:14px; opacity: 0.5;"></img> Ripple</div>
+        </a>
+        <div title="did anyone else make it?" class="picture ms-auto m-4"/>
+
+    </nav>
+
+        <div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+
+                        <div class="row">
+
+                            <div class="col-xl-4 col-md-6  align-self-end">
+                                {% if coin=="Bitcoin" %}
+                                <h1 class="mt-4"><img style="width:40px;" src="https://bitcoin.org/img/icons/opengraph.png?1651392467"/>{{coin}}</h1>
+                                {% endif %}
+                                {% if coin=="Litecoin" %}
+                                <h1 class="mt-4"><img style="width:40px;" src="https://seeklogo.com/images/L/litecoin-ltc-logo-504C7EF8DA-seeklogo.com.png"/>{{coin}}</h1>
+                                {% endif %}
+                                {% if coin=="Ripple" %}
+                                <h1 class="mt-4"><img style="width:40px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBJDV7t5ZIuqnaM4EcDx3pYQSmlLJmEtQ1pg&usqp=CAU"/>{{coin}}</h1>
+                                {% endif %}
+
+                                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item active">{{coin}} predictions</li>
+                                </ol>
+                            </div>
+
+                        </div>
+
+                        {% if coin=="Bitcoin" %}
+                            {% include "preds_btc.html" %}
+                        {% endif %}
+                        {% if coin=="Litecoin" %}
+                            {% include "preds_ltc.html" %}
+                        {% endif %}
+                        {% if coin=="Ripple" %}
+                            {% include "preds_xrp.html" %}
+                        {% endif %}
+
+                        <div class="row mb-4">
+                            <div class="col-xl-6 mb-4">
+                                <div style="height:480px; background-color: #FFFFFF;  overflow:hidden; box-sizing: border-box; border: 1px solid #D3D3D3; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F;padding:1px;padding: 0px; margin: 0px; width: 100%;">
+                                    <div style="height:540px; padding:0px; margin:0px; width: 100%;">
+                                        <iframe src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id={{ticker}}&pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
+                                    </div>
+                                    <div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
+                                        <a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>
+                                        &nbsp;by Coinlib
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                        Machine learning models info card
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            6 models for {{coin}} Currently running
+                                        </div>
+                                        <table class="table table-striped table-bordered h6 align-middle" style="height: 310px;">
+                                            <thead >
+                                            <tr >
+                                                <th>Horizon</th>
+                                                <th>Type</th>
+                                                <th>Accuracy</th>
+                                                <th>Depth</th>
+                                                <th>Update</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>30 min</td>
+                                                <td>FNN</td>
+                                                <td>65%</td>
+                                                <td> 5 layers</td>
+                                                <td> Every minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1 Hour</td>
+                                                <td>FNN</td>
+                                                <td>79%</td>
+                                                <td> 3 layers</td>
+                                                <td> Every minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2 Hours</td>
+                                                <td>FNN</td>
+                                                <td>87%</td>
+                                                <td> 3 layers</td>
+                                                <td> Every minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4 Hours</td>
+                                                <td>FNN</td>
+                                                <td>83%</td>
+                                                <td> 5 layers</td>
+                                                <td> Every 15 minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6 Hours</td>
+                                                <td>FNN</td>
+                                                <td>85%</td>
+                                                <td> 5 layers</td>
+                                                <td> Every 15 minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td>12 Hours</td>
+                                                <td>FNN</td>
+                                                <td>85%</td>
+                                                <td> 5 layers</td>
+                                                <td> Every 15 minute</td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        for more info regarding the models check out the About Page.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-4 mb-4">
+                                <div style="height:575px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid #d3d3d3; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; padding: 0px; margin: 0px; width: 100%;">
+                                    <div style="height:575px; padding:0px; margin:0px; width: 100%;">
+                                        <iframe src="https://widget.coinlib.io/widget?type=full_v2&theme=light&cnt=9&pref_coin_id=1505&graph=yes" width="100%" height="575px" scrolling="off" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 mb-4 ">
+                                <div class="card mb-4 " style="height:575px;">
+                                    <div class="card-header">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                        Prediction History
+                                    </div>
+
+                                    <div class="card-body">
+                                        {% if coin=="Bitcoin" %}
+                                            {% include "table_btc.html" %}
+                                        {% endif %}
+                                        {% if coin=="Litecoin" %}
+                                            {% include "table_ltc.html" %}
+                                        {% endif %}
+                                        {% if coin=="Ripple" %}
+                                            {% include "table_xrp.html" %}
+                                        {% endif %}
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            Showing {{coin}}'s last 3 hours Prediction history.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </main>
+                <footer class="py-3 bg-light mt-5">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Installation 04 2022</div>
+                            <div>
+                                <a href="#">About</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>
