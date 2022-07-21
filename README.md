@@ -1,8 +1,11 @@
 # Installation04
 Cryptocurrency price movement prediction project using machine learning.
+
 this project was not easy, i worked on it for close to 8 months as my graduation project, from data collection to processing to model training and selection,
 to finally the website design and implementation.
+
 This repo contains all the code and data that represent this project and the work i put into it.
+
 1-  Data,
   put into CSV files, the different types of data that after researching and collecting were found to be best for NN model training.
   the data is clean, contains no jumps or duplicates, all the gaps were filled using constant or linear interpolation , based on what worked best.
