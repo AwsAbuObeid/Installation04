@@ -1,0 +1,8 @@
+{"hor": 0.5 ,
+"sampleLength": 73500,
+"PeriodStartingSize": 45 ,
+"PeriodCount": 60 ,
+"inc": 40 ,
+"acc": 74 ,
+"coin": "XRP",
+"hid": 3}

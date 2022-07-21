@@ -1,0 +1,7 @@
+{"hor": 0.5 ,
+"sampleLength": 97200 ,
+"PeriodStartingSize": 30 ,
+"PeriodCount": 80 ,
+"inc": 30 ,
+"acc":65 ,
+"coin": "BTC"}
