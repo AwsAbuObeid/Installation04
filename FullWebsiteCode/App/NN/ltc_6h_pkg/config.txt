@@ -1,8 +1,0 @@
-{"hor": 6 ,
-"sampleLength": 41175,
-"PeriodStartingSize": 35 ,
-"PeriodCount": 45 ,
-"inc": 40 ,
-"acc":88 ,
-"coin": "LTC",
-"hid": 3}
