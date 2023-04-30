@@ -13,6 +13,13 @@ def getPrices(sampleLength, coin):
                                                         'DESC LIMIT ?', (prevTime, CurrentTime, sampleLength))
     df = DataFrame(interval.fetchall())
     df.columns = interval.keys()
+    rows = interval.fetchall()
+    if not rows:
+        df = DataFrame(columns=interval.keys())
+        df.loc[0] = [int(time.time()-((time.time())%60))] +[0] * (len(interval.keys())-1)
+    else:
+        df = DataFrame(rows)
+        df.columns = interval.keys()
     full = Fill(df.to_numpy(), 60,sampleLength)
     return full
 
@@ -104,8 +111,13 @@ def getPred(sampleLength, coin):
     interval = db.engine. \
         execute('SELECT * FROM ' + coin + '__Pred WHERE unix BETWEEN ? AND ? AND unix%900=0 ORDER BY unix DESC',
                 (prevTime, CurrentTime))
-    df = DataFrame(interval.fetchall())
-    df.columns = interval.keys()
+    rows = interval.fetchall()
+    if not rows:
+        df = DataFrame(columns=interval.keys())
+        df.loc[0] = [int(time.time()-((time.time())%60))] +[0] * (len(interval.keys())-1)
+    else:
+        df = DataFrame(rows)
+        df.columns = interval.keys()
     return df
 
 
@@ -156,8 +168,6 @@ def getLatestPreds(coin):
 def Fill(rows, timeframe,sampleLength):
     new = []
     for i in range(0, len(rows) - 1):
-        if int(rows[i][0]) - int(rows[i + 1][0]) == 0:
-            print("impossible")
         unix = float(rows[i][0])
         new.append(rows[i])
 
