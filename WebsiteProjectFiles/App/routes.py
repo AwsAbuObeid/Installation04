@@ -76,7 +76,7 @@ def inject_load():
             }
 
 
-@app.before_first_request
+@app.before_request
 def before_first_request():
     threading.Thread(target=update_load).start()
 
