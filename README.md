@@ -14,7 +14,7 @@ The code for training the neural network models on the data is also included in 
 
 ## Website Project Files:
 
-The website for this project was created using Flask, and the full project files are included in this repository. The latest models, model files, and scalers are also included in the website project files. The database used for this project needs to be in "WebsiteProjectFiles/App/CryptoDB.db", and it must contain the past 3 months of data for the models to run correctly. If there is missing data in the database, the models will run, but the results may not be accurate.
+The website for this project was created using Flask, and the full project files are included in this repository. The latest models, model files, and scalers are also included in the website project files. The database used for this project needs to be in "WebsiteProjectFiles/instance/CryptoDB.db", and it must contain the past 3 months of data for the models to run correctly. If there is missing data in the database, the models will run, but the results may not be accurate.
 
 ## Data Collection Programs:
 
