@@ -1,6 +1,5 @@
 # Installation04
 
-2
 ##Introduction:
 
 Welcome to the "Installation04" project, a cryptocurrency price movement prediction project that utilizes machine learning. This project was developed as a graduation project, and it involved months of research, data collection, processing, model training and selection, and website design and implementation. This readme file will provide an overview of the contents of this repository.
@@ -20,7 +19,7 @@ The website for this project was created using Flask, and the full project files
 
 ##Data Collection Programs:
 
-To ensure that the website is up-to-date with the latest data, real-time data is collected using various websites. The data collection programs are also included in this repository.
+To ensure that the website is up-to-date with the latest data, real-time data is collected using various websites. The data collection programs are also included in this repository, although to save on resources and time, data collection is stopped , the database would need to be updated with correct cryot data from the previous 2 and a half months.
 
 ##Conclusion:
 
